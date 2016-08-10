@@ -36,6 +36,8 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'app/connect-four',
+  'app/game-column',
   /** @cli-barrel */
 ];
 

@@ -3,8 +3,7 @@
 import { addProviders, async, inject } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-/* Tests TBD
-describe('App: ConnectFour', () => {
+describe('App: ConnectFourWebWorker', () => {
   beforeEach(() => {
     addProviders([AppComponent]);
   });
@@ -14,9 +13,8 @@ describe('App: ConnectFour', () => {
       expect(app).toBeTruthy();
     }));
 
-  // it('should have as title \'app works!\'',
-  //   inject([AppComponent], (app: AppComponent) => {
-  //     expect(app.title).toEqual('app works!');
-  //   }));
+  it('should have as title \'app works!\'',
+    inject([AppComponent], (app: AppComponent) => {
+      expect(app.title).toEqual('app works!');
+    }));
 });
-*/
