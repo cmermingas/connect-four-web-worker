@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Http} from '@angular/http';
 import {ConnectFourComponent} from "./connect-four/connect-four.component";
 import {ConnectFour} from "./model/connect-four";
-import {MinimaxPlayer} from "./minimax-player/minimax-player";
+import {MinimaxPlayer, minimaxWebWorker} from "./minimax-player/minimax-player";
 // import {Observable, Subscription} from 'rxjs';
 
 @Component({
@@ -18,13 +18,15 @@ export class AppComponent implements OnInit, OnDestroy {
   // playerRobots: MinimaxPlayer[] = [];
   minimaxWorker: any;
   playerIsRobot = [null, false, true];
+  webWorker = new Blob(['var a = 2;']);
 
   constructor() {}
 
   ngOnInit() {
     this.resetGame();
     // this.switchPlayer(2);
-    this.minimaxWorker = new Worker('/app/minimax-player/minimax-web-worker.js');
+    let blobUrl = window.URL.createObjectURL(minimaxWebWorker);
+    this.minimaxWorker = new Worker(blobUrl);
     this.minimaxWorker.addEventListener('message', e => {
       // console.log('The worker said: ', e.data);
       this.playAtColumn(this.game.columns[e.data]);

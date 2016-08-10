@@ -9,10 +9,12 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  // 'minimax-webworker': '/app/minimax-player'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  // 'minimax-webworker': {main: 'minimax-web-worker.js'}
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
